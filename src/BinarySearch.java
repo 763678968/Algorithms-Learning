@@ -2,15 +2,29 @@ import java.util.Arrays;
 
 public class BinarySearch {
     public static int rank(int key, int[] a) {
+        // 数组必须是有序的
         int lo = 0;
         int hi = a.length - 1;
         while (lo <= hi) {
+            // 被查找的键要么不存在，要么必然存在于a[lo..hi]之中
             int mid = lo + (hi - lo) / 2;
             if      (key < a[mid]) hi = mid - 1;
             else if (key > a[mid]) lo = mid + 1;
             else                   return mid;
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] whitelist = In.readInts(args[0]);
+
+        Arrays.sort(whitelist);
+
+        while (!StdIn.isEmpty()) {
+            int key = StdIn.readInt();
+            if (rank(key, whitelist) == -1)
+                StdOut.println(key);
+        }
     }
 
 //    二分查找的递归实现
@@ -26,17 +40,4 @@ public class BinarySearch {
 //        else if (key > a[mid]) return rank(key, a, mid + 1, hi);
 //        else                   return mid;
 //    }
-
-
-    public static void main(String[] args) {
-        int[] whitelist = In.readInts(args[0]);
-
-        Arrays.sort(whitelist);
-
-        while (!StdIn.isEmpty()) {
-            int key = StdIn.readInt();
-            if (rank(key, whitelist) == -1)
-                StdOut.println(key);
-        }
-    }
 }
