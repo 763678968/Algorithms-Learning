@@ -7,14 +7,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/sources/algs4.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk-12/lib/algs4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/sources/algs4.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk-12/lib/algs4.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
