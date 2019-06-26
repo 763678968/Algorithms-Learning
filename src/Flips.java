@@ -1,4 +1,4 @@
-import edu.princeton.cs.algs4.Counter;
+//import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -17,6 +17,6 @@ public class Flips {
         StdOut.println(heads);
         StdOut.println(tails);
         int d = heads.tally() - tails.tally();
-        StdOut.println("dalta: " + Math.abs(d));
+        StdOut.println("delta: " + Math.abs(d));
     }
 }
