@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class VectorDemo1 {
+public class VectorDemo {
     public static void main(String[] args) {
         Vector<Integer> vec = new Vector<Integer>();
         int rdm = 0;
