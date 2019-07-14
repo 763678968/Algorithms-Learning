@@ -1,4 +1,7 @@
-/** The idea is simple. It creates a size 26 int arrays as buckets for each letter in alphabet. It increments the bucket value with String s and decrement with string t. So if they are anagrams, all buckets should remain with initial value which is zero. So just checking that and return
+/** The idea is simple. It creates a size 26 int arrays as buckets for each letter in alphabet. 
+It increments the bucket value with String s and decrement with string t. 
+So if they are anagrams, all buckets should remain with initial value which is zero. 
+So just checking that and return
 */
 
 class Solution {
