@@ -1,4 +1,4 @@
-This can be solved by reversing the 2nd half and compare the two halves. Let's start with an example [1, 1, 2, 1].
+/** This can be solved by reversing the 2nd half and compare the two halves. Let's start with an example [1, 1, 2, 1].
 
 In the beginning, set two pointers fast and slow starting at the head.
 
@@ -16,7 +16,8 @@ h                      s
 
 1 -> 1    null <- 2 <- 1             
      h            s
-     
+*/
+
 class Solution {
     public boolean isPalindrome(ListNode head) {
         ListNode fast = head, slow = head;
