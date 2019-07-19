@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class LSD {
     public static void sort(String[] a, int W) {
         // 通过前W个字符将a[]排序
