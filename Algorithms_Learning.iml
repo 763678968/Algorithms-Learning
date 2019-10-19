@@ -18,5 +18,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="typeinfo-pets" level="project" />
+    <orderEntry type="library" name="TinkingInJava" level="project" />
   </component>
 </module>
