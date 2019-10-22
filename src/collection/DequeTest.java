@@ -1,5 +1,7 @@
 package collection;
 
+import java.util.Collections;
+
 import static net.mindview.util.Print.print;
 import static net.mindview.util.Print.printnb;
 
