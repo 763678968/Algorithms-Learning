@@ -11,7 +11,6 @@ public class FindDuplication {
         }
         for (int a : arr) {
             if (a < 0 || a > arr.length - 1) {
-            }
                 System.out.println("数字大小超出范围！");
                 return -1;
             }
