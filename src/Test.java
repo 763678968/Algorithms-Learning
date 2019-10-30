@@ -11,19 +11,38 @@ public class Test {
                 return -1;
             }
         }
-        for (int i = 0; i < arr.length; i++) {
-            int temp;
-            while (arr[i] != i) {
-                if (arr[arr[i]] == arr[i])
-                    return arr[i];
-                // 交换arr[arr[i]]和arr[i]
-                temp = arr[i];
-                arr[i] = arr[temp];
-                arr[temp] = temp;
+        int low = 1;
+        int high = arr.length - 1;
+        int mid, count;
+        while (low <= high) {
+            mid = ((high - low) >> 2) + low;
+            count = countRange(arr, low, mid);
+            if (low == high) {
+                if (count > 1)
+                    return low;
+                else
+                    break;
+            }
+            if (count > mid - low + 1) {
+                high = mid;
+            } else {
+                low = mid + 1;
             }
         }
-        System.out.println("数组中无重复数字！");
         return -1;
+
+    }
+
+    public int countRange(int[] arr, int low, int high) {
+        if (arr == null)
+            return 0;
+
+        int count = 0;
+        for (int a : arr) {
+            if (a >= low && a <= high)
+                count++;
+        }
+        return count;
     }
 
     // ====================测试代码=======================
@@ -37,22 +56,15 @@ public class Test {
 
     public void test2() {
         System.out.println("test2: ");
-        int[] a = { 0, 1, 2, 3 };
-        int dup = getDuplicate(a);
-        if (dup >= 0)
-            System.out.println("重复数字为：" + dup);
-    }
-
-    public void test3() {
-        System.out.println("test3: ");
         int[] a = { 1, 2, 3, 4 };
         int dup = getDuplicate(a);
         if (dup >= 0)
             System.out.println("重复数字为：" + dup);
     }
 
-    public void test4() {
-        System.out.println("test4: ");
+
+    public void test3() {
+        System.out.println("test3: ");
         int[] a = { 1, 2, 3, 2, 4 };
         int dup = getDuplicate(a);
         if (dup >= 0)
@@ -64,7 +76,6 @@ public class Test {
         t.test1();
         t.test2();
         t.test3();
-        t.test4();
     }
 
 
