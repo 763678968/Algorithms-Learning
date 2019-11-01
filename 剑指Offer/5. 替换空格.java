@@ -22,3 +22,10 @@ public class Solution {
         return str.toString();
     }
 }
+
+// 一行代码实现
+public class Solution {
+    public String replaceSpace(StringBuffer str) {
+    	return str.toString().replaceAll(" ", "%20"); 
+    }
+}
