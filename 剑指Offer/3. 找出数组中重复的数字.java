@@ -29,3 +29,19 @@ public class FindDuplication {
         System.out.println("数组中无重复数字！");
         return -1;
     }
+
+    
+// 解法2：哈希表
+public class Solution {
+    public boolean duplicate(int numbers[],int length,int [] duplication) {
+        boolean[] k = new boolean[length];
+        for (int i = 0; i < k.length; i++) {
+            if (k[numbers[i]] == true) {
+                duplication[0] = numbers[i];
+                return true;
+            }
+            k[numbers[i]] = true;
+        }
+        return false;
+    }
+}
