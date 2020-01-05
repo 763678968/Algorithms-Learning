@@ -44,7 +44,7 @@ class Solution {
 class Solution {
     public static ArrayList<Integer> getLeastKNumbers(int[] input, int K) {
         ArrayList<Integer> result = new ArrayList<>();
-        if (input == null || K < 1) {
+        if (input == null || K < 1 || K > input.length) {
             return result;
         }
 
