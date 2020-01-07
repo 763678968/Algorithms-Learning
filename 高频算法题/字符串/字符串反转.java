@@ -1,7 +1,7 @@
 // 程序员代码面试指南P267
 // 将how are you 变成 you are how，要求额外空间复杂度为O(1)
 class Solution {
-    public String rotateWord(String str) {
+    public String reverseWords(String str) {
         if (str == null || str.length() == 0) return "";
         char[] chars = str.toCharArray();
         reverse(chars, 0, chars.length - 1);
