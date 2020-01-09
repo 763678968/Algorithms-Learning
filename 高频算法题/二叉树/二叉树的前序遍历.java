@@ -1,4 +1,4 @@
-// 递归
+// 递归（直接打印）
 class Solution {
     public void preOrder(TreeNode root) {
         if (root != null) {
@@ -7,6 +7,21 @@ class Solution {
             preOrder(root.left);
             preOrder(root.right);
         }
+    }
+}
+
+
+// 递归（输出ArrayList）
+class Solution {
+    ArrayList<Integer> result = new ArrayList<>();
+    public ArrayList<Integer> preOrder(TreeNode root) {
+        if (root != null) {
+            // 中、左、右
+            result.add(root);
+            preOrder(root.left);
+            preOrder(root.right);
+        }
+        return result;
     }
 }
 
