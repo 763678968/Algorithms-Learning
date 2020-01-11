@@ -55,3 +55,16 @@ class Solution {
         return isSubtreeWithRoot(s.left, t.left) && isSubtreeWithRoot(s.right, t.right);
     }
 }
+
+// 注意：本题中的TreeNode值类型为int，所以可以使用“==”判断两者是否相等，
+// 但是如果val的类型为long时，就不能直接使用“==”去比较了。这是因为在计
+// 算机内表示小数时（包括：float和double）都有误差。判断连个小数是否相
+// 等，只能判断它们之差的绝对值是不是在一个很小的范围内。如果两个数相差
+// 很小，就可以认为它们相等，可以定义一个equal函数：
+public boolean equal(double n1, double n2){
+    if((ni - n2 > -0.0000001) && (n1 - n2 < 0.0000001)){
+        return true;
+    }else{
+        return false;
+    }
+}
