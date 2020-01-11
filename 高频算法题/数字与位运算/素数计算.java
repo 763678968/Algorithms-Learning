@@ -1,8 +1,8 @@
 // 1.求100以内的全部素数（暴力法）
 class Solution {
     public static void main(String[] args) {
-        for (int i = 1; i <= 100; i++) {
-            if (i == 1 || i == 2) {
+        for (int i = 2; i <= 100; i++) {
+            if (i == 2) {
                 System.out.println(i);
                 continue;
             }
@@ -18,7 +18,6 @@ class Solution {
     }
 }
 
-
 // 2.求100以内的全部素数（平方根方法）
 class Solution {
     public static void main(String[] args) {
@@ -27,8 +26,8 @@ class Solution {
 
         for (int i = 1; i <= 100; i++) {
             flag = false;
-            // 1、2都是素数，单独处理
-            if (i == 1 || i == 2) {
+            // 2是素数，单独处理
+            if (i == 2) {
                 System.out.println(i);
                 continue;
             }
