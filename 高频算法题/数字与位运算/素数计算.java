@@ -24,7 +24,7 @@ class Solution {
         // 设立一个标记位，false表示为素数
         boolean flag;
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 2; i <= 100; i++) {
             flag = false;
             // 2是素数，单独处理
             if (i == 2) {
