@@ -1,3 +1,4 @@
+// 使用一个队列实现栈
 class MyStack {
     /**
      * 使用一个队列来实现栈
@@ -29,5 +30,57 @@ class MyStack {
     /** Returns whether the stack is empty. */
     public boolean empty() {
         return queue.isEmpty();
+    }
+}
+
+
+// 使用两个队列实现栈
+// 这种方法无法实现top()
+class MyStack {
+    Queue<Integer> queue1 = new LinkedList<>();
+    Queue<Integer> queue2 = new LinkedList<>();
+
+    public MyStack() { }
+
+    // 入栈操作
+    public void push(int val) {
+        queue1.offer(val);
+    }
+
+    // 出栈操作
+    public int pop() {
+        // 检验栈是否非空
+        // 将一个队列中的n-1个数字移动到另一个队列中
+        if (!empty()) {
+            // queue1非空
+            if (!queue1.isEmpty()) {
+                moveToAnother();
+                return queue1.poll();
+                // queue2非空
+            } else {
+                moveToAnother();
+                return queue2.poll();
+            }
+        } else {
+            System.out.println("栈已经为空！");
+            return -1;
+        }
+    }
+
+    // 检验栈是否为空
+    public boolean empty() {
+        return queue1.isEmpty() && queue2.isEmpty();
+    }
+
+    private void moveToAnother() {
+        if (!queue1.isEmpty()) {
+            while (queue1.size() > 1) {
+                queue2.offer(queue1.poll());
+            }
+        } else if (!queue2.isEmpty()) {
+            while (queue2.size() > 1) {
+                queue1.offer(queue2.poll());
+            }
+        }
     }
 }
