@@ -1,3 +1,4 @@
+// 做法一：字符串累加
 class Solution {
     public static void printOneToMaxOfNDigits(int n) {
         if (n <= 0) {
@@ -62,6 +63,63 @@ class Solution {
             }
         }
         System.out.println();
+    }
+
+    // 测试
+    public static void main(String[] args) {
+        printOneToMaxOfNDigits(3);
+    }
+}
+
+
+// 方法二：全排列
+class Solution {
+    public static void printOneToMaxOfNDigits(int n) {
+        if (n <= 0) {
+            return;
+        }
+        char[] number = new char[n];
+        // 初始化为0
+        Arrays.fill(number, '0');
+
+        // 全排列：每一个位置上都会出现0~9
+        for (int i = 0; i < 10; i++) {
+            number[0] = (char) (i + '0');
+            printOneToMaxOfNDigitsRecursive(number, n, 0);
+        }
+
+    }
+
+    private static void printOneToMaxOfNDigitsRecursive(char[] number, int length, int index) {
+        if (index == length - 1) {
+            print(number);
+            return;
+        }
+        for (int i = 0; i < 10; i++) {
+            number[index + 1] = (char) (i + '0');
+            printOneToMaxOfNDigitsRecursive(number, length, index + 1);
+        }
+    }
+
+    // 打印字符串
+    private static void print(char[] number) {
+        StringBuilder str = new StringBuilder();
+        boolean isBeginAtOne = false;
+        int length = number.length;
+
+        for (int i = 0; i < length; i++) {
+            if (number[i] != '0' && !isBeginAtOne) {
+                isBeginAtOne = true;
+            }
+            if (isBeginAtOne) {
+                str.append(String.valueOf(number[i]));
+            }
+        }
+        if (str.toString().matches("^9+$")) {
+            System.out.println(str.toString() + " ");
+        } else {
+            System.out.print(str.toString() + " ");
+        }
     }
 
     // 测试
