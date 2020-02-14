@@ -29,7 +29,46 @@ class Solution {
 }
 
 
-// 3.数字转换成字符串
+// 3.字符串转数字的一般情况
+class Solution {
+    private static boolean isValid = false;
+
+    public static int StrToInt(String str) {
+        if (str == null || str.length() <= 0) {
+            return 0;
+        }
+        long res = 0;  //先用long来存储，以防止越界
+        boolean minus = false;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            // 判断首位是否为'-'，负数
+            if (i == 0 && ch == '-') {
+                minus = true;
+                // 判断首位是否为'+'，正数
+            } else if (i == 0 && ch == '+') {
+                minus = false;
+            } else {
+                // 判断字符串中间是否存在非法字符
+                int num = ch - '0';
+                if (num < 0 || num > 9) {
+                    isValid = false;
+                    return 0;
+                }
+                res = (minus == false) ? res * 10 + num : res * 10 - num;
+                isValid = true;  //不放在最后面是为了防止str=‘+’的情况被判断为true
+                // 由于前面使用long类型来存储num变量，因此num的范围可以大于0x7FFFFFFF或小于0x80000000
+                if ((!minus && res > 0x7FFFFFFF) || (minus && res < 0x80000000)) {
+                    isValid = false;
+                    return 0;
+                }
+            }
+        }
+        return (int) res;
+    }
+}
+
+
+// 4.数字转换成字符串
 class Solution {
     public static void numToString(int num) {
         // 使用Integer.toString()方法
