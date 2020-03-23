@@ -1,22 +1,30 @@
 // 非递归方法
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        int n = 0;
-        // 计算链表的长度
-        for (ListNode i = head; i != null; n++, i = i.next);
-
+        if (head == null || k <= 0) {
+            return null;
+        }
         ListNode start = new ListNode(0);
         start.next = head;
-        for(ListNode prev = start, tail = head; n >= k; n -= k) {
-            for (int i = 1; i < k; i++) {
-                ListNode next = tail.next.next;
-                tail.next.next = prev.next;
-                prev.next = tail.next;
-                tail.next = next;
+        ListNode prev = start;
+        ListNode cur = head;
+        // 计算链表长度
+        int count = 0;
+        while (head != null) {
+            count++;
+            head = head.next;
+        }
+        head = start.next;
+        // 每K个元素反转一次链表
+        for (int i = 0; i < count / k; i++) {
+            for (int j = 1; j < k; j++) {
+                ListNode next = cur.next;
+                cur.next = next.next;
+                next.next = prev.next;
+                prev.next = next;
             }
-
-            prev = tail;
-            tail = tail.next;
+            prev = cur;
+            cur = prev.next;
         }
         return start.next;
     }
