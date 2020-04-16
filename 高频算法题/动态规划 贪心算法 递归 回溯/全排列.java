@@ -12,6 +12,8 @@ class Solution {
             list.add(new ArrayList<>(tempList));
         }
         for (int i = 0; i < nums.length; i++) {
+            // 注意：这里used[i - 1]可以加 !，也可以不加
+            // !used[i - 1]表示顺序索引，而used[i - 1]表示倒序索引
             if (used[i] || i > 0 && nums[i] == nums[i-1] && used[i-1]) continue;
             tempList.add(nums[i]);
             used[i] = true;
